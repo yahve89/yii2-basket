@@ -1,0 +1,18 @@
+{
+    "name": "yahve89/yii2-basket",
+    "description": "Yii 2 Простая сессионная корзина - пример",
+    "homepage": "https://github.com/yahve89/yii2-basket",
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Ivan Alexandrov",
+            "email": "yahve1989@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "yahve89\\basket\\": "src"
+        }
+    }
+}

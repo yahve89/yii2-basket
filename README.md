@@ -19,7 +19,22 @@ or add
 
 to the ```require``` section of your `composer.json` file.
 
+## config/web.php
+
+```php
+// ...
+ 'modules' => [
+        'basket' => [
+            'class' => 'yahve89\basket\Module',
+        ]
+    ],
+    'bootstrap' => [
+        'yahve89\basket\Bootstrap'
+    ],
+// ...
+```
 ## Usage
+
 ```php
 <?php
 

@@ -9,22 +9,19 @@ use yii\data\ActiveDataProvider;
 class Offers extends Widget
 {
     public $tableName;
-    private $model;
 
     public function init()
     {
         parent::init();
 
         if ($this->tableName === null)
-            throw new Exception('Bad Request', 400, null);
-
-        if ($this->model === null)
-            $this->model = new $this->tableName;   
+            throw new Exception('Bad Request', 400, null); 
     }
 
     public function run()
     {
-        $query = $this->model::find();
+        $model = new $this->tableName;  
+        $query = $model::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
@@ -46,8 +43,9 @@ class Offers extends Widget
     private function getColums()
     {
         $columns = [];
-
-        foreach ($this->model->getTableSchema()->columns as $column) {
+        $model = new $this->tableName;
+        
+        foreach ($model->getTableSchema()->columns as $column) {
             $columns[] = [
                 'class' => 'yii\grid\DataColumn',
                 'attribute' => $column->name,

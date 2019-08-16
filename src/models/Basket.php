@@ -35,7 +35,9 @@ class Basket extends Model
      */
     public function getOffer($id, $tableName)
     { 
-        return (new $tableName)::findOne($id);
+        $model = new $tableName;
+        
+        return $model::findOne($id);
     }
 
     /*

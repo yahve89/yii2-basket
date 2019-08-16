@@ -3,7 +3,6 @@
     <br>
 </p>
 
-<div align="center">
     ### Install
 
 Either run
@@ -69,5 +68,3 @@ $this->registerJs($js);
     </div>
 </div>
 ```
-
-</div>

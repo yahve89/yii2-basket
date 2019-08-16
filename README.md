@@ -8,7 +8,7 @@
 Either run
 
 ```
-$ php composer.phar require yahve89/yii2-basket "@dev"
+$ php composer.phar require yahve89/yii2-basket:@dev
 ```
 
 or add

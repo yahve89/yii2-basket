@@ -20,12 +20,12 @@ class Basket extends Model
 
             return [];
         } else {
-          $products = $session->get('basket');
+            $products = $session->get('basket');
           
-          if (!empty($products['products']))
-            return $products['products'];
+            if (!empty($products['products']))
+                return $products['products'];
 
-          return [];
+            return [];
         }
     }
 

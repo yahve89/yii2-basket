@@ -2,11 +2,10 @@
 
 namespace yahve89\basket;
 
-
 /**
  * Basket module definition class
  */
-class Module extends \yii\base\Module 
+class Module extends \yii\base\Module
 {
     /**
      * {@inheritdoc}

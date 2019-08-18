@@ -2,10 +2,9 @@
 
 namespace yahve89\basket\controllers;
 
+use yahve89\basket\models\Basket;
 use Yii;
 use yii\web\Controller;
-use yahve89\basket\models\Basket;
-
 
 /**
  * Default controller for the `Basket` module
@@ -16,12 +15,13 @@ class DefaultController extends Controller
      * Renders the index view for the module
      * @return string
      */
-    public function actionIndex() {
+    public function actionIndex()
+    {
 
         $basket = new Basket;
 
         return $this->render('index', [
-            'basket' => $basket
+            'basket' => $basket,
         ]);
     }
 
@@ -38,7 +38,7 @@ class DefaultController extends Controller
             $id = $request->post('id');
             $session = Yii::$app->session;
             $session->open();
-            
+
             if (!$session->has('basket')) {
                 $session->set('basket', []);
                 $basket = [];
@@ -48,12 +48,12 @@ class DefaultController extends Controller
 
             if (isset($basket['products'][$group][$id])) {
                 unset($basket['products'][$group][$id]);
-            } else { 
+            } else {
                 $basket['products'][$group][$id]['id'] = $id;
             }
-            
-            $session->set('basket', $basket);  
-            return ;
+
+            $session->set('basket', $basket);
+            return;
         }
 
         throw new \Exception('Page not found', 404, null);
@@ -62,7 +62,8 @@ class DefaultController extends Controller
     /**
      * метод Чистит корзину
      */
-    public function actionDeleteAll() {
+    public function actionDeleteAll()
+    {
         if (Yii::$app->request->isPost) {
             $session = Yii::$app->session;
             $session->open();
@@ -75,7 +76,8 @@ class DefaultController extends Controller
     /**
      * метод Удаляет оферы из корзины
      */
-    public function actionDelete() {
+    public function actionDelete()
+    {
         if (Yii::$app->request->isPost) {
             $request = Yii::$app->request;
             $tableName = $request->post('tableName');

@@ -5,14 +5,14 @@ namespace yahve89\basket\models;
 use Yii;
 use yii\base\Model;
 
-
 class Basket extends Model
 {
     /**
-    * Метод возвращает содержимое корзины
-    * @return array
-    */
-    public function getBasket() {
+     * Метод возвращает содержимое корзины
+     * @return array
+     */
+    public function getBasket()
+    {
         $session = Yii::$app->session;
         $session->open();
         if (!$session->has('basket')) {
@@ -21,9 +21,10 @@ class Basket extends Model
             return [];
         } else {
             $products = $session->get('basket');
-          
-            if (!empty($products['products']))
+
+            if (!empty($products['products'])) {
                 return $products['products'];
+            }
 
             return [];
         }
@@ -34,9 +35,9 @@ class Basket extends Model
      * @return ActiveRecord
      */
     public function getOffer($id, $tableName)
-    { 
+    {
         $model = new $tableName;
-        
+
         return $model::findOne($id);
     }
 
